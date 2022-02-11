@@ -1,0 +1,87 @@
+// Variables
+$purple : #a050be;
+$light-grey: #eaeaeb;
+$dark-grey: #464646;
+$yellow: #fabe50;
+$fontStandard: Arial, Helvetica, sans-serif;
+$img-width: 45%;
+
+%no-decoration {text-decoration: none;}
+%u-decoration {text-decoration: underline;}
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+
+@mixin flx($property, $jty-cnt) {
+    #{$property}: $jty-cnt;
+}
+
+
+// Responsive Media Queries
+@mixin for-phone-only {
+    @media (max-width: 767.98px) {@content;}    
+}
+
+@mixin for-tablet-only {
+    @media (min-width: 768px) and (max-width: 1199.98px) { @content;}
+}
+
+@mixin for-desktop-only {
+    @media (min-width: 1200px) {@content;}
+}
+
+// Functions
+@function calculateRem($size) {
+    @return $size / 16px * 1rem;
+}
+
+@mixin fontSize($size) {
+    font-size: $size;
+}
+
+//Foreach function
+
+$directions: top, bottom, left, right;
+$layout-margin-size: 10px;
+
+@each $direction in $directions {
+    %no-margin-#{$direction} {margin-#{$direction}:0;}
+    %default-margin-#{$direction} {margin-#{$direction}: $layout-margin-size;}
+    %double-margin-#{$direction} {margin-#{$direction}: $layout-margin-size * 2;}
+    %half-margin-#{$direction} {margin-#{$direction}: $layout-margin-size / 2;}
+}
+
+// If / Else
+$half-width: 50%;
+$full-width: 100%;
+
+@mixin theme-collection($half-post: true) {
+    @include for-phone-only {
+        width: $full-width;
+    }
+
+    @if $half-post {
+        width: $half-width;
+    } @else {
+        width: $full-width;
+    }
+}
+
+// FontSize Collection
+
+@mixin font-collection($half-title: true) {
+    @include for-phone-only {
+        @include fontSize(16px);
+    }
+
+    @if $half-title {
+        @include fontSize(18px);
+    } @else {
+        @include fontSize(22px);
+    }
+}
+
+@import "header", "main", "article", "about", "collection", "contact", "footer";

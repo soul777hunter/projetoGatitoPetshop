@@ -1,0 +1,89 @@
+/* Article */
+.article {
+    width: 80%;
+    margin: 0 auto 40px;
+    font-family: $fontStandard;
+
+    @include for-phone-only{
+        width: 90%;
+    }
+
+    &__title {
+        background-color: $light-grey;
+        text-align: center;
+        padding: 20px;
+    }
+    &__h1 {
+        
+        @include fontSize(22px);
+
+        color: $dark-grey;
+        letter-spacing: 1;
+
+        @extend %half-margin-top, %default-margin-bottom;
+    }
+
+    .breadcrumb {
+        @include flx(justify-content, center);
+        align-items: center;
+
+        &__link {
+            
+            @include fontSize(12px);
+
+            @extend %no-decoration;
+            color: $dark-grey;
+
+            &:hover {
+                @extend %u-decoration;
+                color: $purple;
+            }
+        }
+
+        &__img {
+            width: 10px;
+            margin: 8px;
+        }
+    }
+
+    &__img {
+        
+        @extend %double-margin-left;
+
+        width: 100%;
+    }
+
+    &__details {
+        @include flx(justify-content, center);
+        align-items: center;
+    }
+
+    &__date {
+        
+        @extend %default-margin-right, %default-margin-left;
+        
+        @include fontSize(12px);
+
+        font-style: italic;
+    }
+
+    &__tag {
+        
+        @include fontSize(14px);
+
+        padding: 5px 7px;
+        color: $purple;
+        border: 1px solid $purple;
+        
+        @extend %default-margin-right, %default-margin-left;
+    }
+
+    &__content {
+        font-weight: 100;
+        
+        @include fontSize(14px);
+
+        color: $dark-grey;
+        padding: 10px 20px;
+    }
+}
