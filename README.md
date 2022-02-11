@@ -4,4 +4,5 @@ This project is focused in just html & css, but with some differences as to use 
 
 ## Main information
 
-Tools: HTML { BEM }, CSS { SASS }
+Tools: HTML { BEM }, CSS { SASS }<br>
+Extra tools: VSCODE extension { LIVE SASS COMPILER }
